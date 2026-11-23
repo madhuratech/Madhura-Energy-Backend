@@ -2,8 +2,6 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const mailRouter = require("./routes/mail.route");
-
 const app = express();
 
 const defaultAllowedOrigins = [
@@ -48,8 +46,6 @@ app.get("/api/health", (req, res) => {
     message: "Backend is running",
   });
 });
-
-app.use("/api", mailRouter);
 
 // Only start listening when run directly (not during tests)
 if (require.main === module) {
